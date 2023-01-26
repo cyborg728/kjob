@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'add-vacancy',
+    path: 'vacancy-add',
     loadChildren: () =>
       import('./add-vacancy/add-vacancy.module').then(
         (m) => m.AddVacancyModule
