@@ -1,0 +1,107 @@
+<h2>Добавить вакинсию</h2>
+<form nz-form [formGroup]="validateForm" (ngSubmit)="add_vacancy()">
+  <nz-form-item>
+    <nz-form-label nzSpan="6" nzRequired>Категория</nz-form-label>
+    <nz-form-control nzErrorTip="Пожалуйста, выберите категорию">
+      <nz-select formControlName="category_id" nzPlaceHolder="Категория">
+        <ng-template ngFor let-category [ngForOf]="category_list">
+          <nz-option
+            nzValue="{{ category.id }}"
+            nzLabel="{{ category.name_ru }}"
+          ></nz-option>
+        </ng-template>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired nzSpan="6">Город</nz-form-label>
+    <nz-form-control nzErrorTip="Пожалуйста, выберите город">
+      <nz-select nzShowSearch formControlName="city_id" nzPlaceHolder="Город">
+        <ng-template ngFor let-city [ngForOf]="city_list">
+          <nz-option
+            nzValue="{{ city.id }}"
+            nzLabel="{{ city.name_ru }}"
+          ></nz-option>
+        </ng-template>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzSpan="6">Нужна виза?</nz-form-label>
+    <nz-form-control>
+      <nz-radio-group formControlName="need_visa">
+        <label nz-radio-button nzValue="1">Да</label>
+        <label nz-radio-button nzValue="2">Нет</label>
+      </nz-radio-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzSpan="6">Вакансия для</nz-form-label>
+    <nz-form-control>
+      <nz-radio-group formControlName="vacancy_for">
+        <label nz-radio-button nzValue="1">Мужчин</label>
+        <label nz-radio-button nzValue="2">Женщин</label>
+        <label nz-radio-button nzValue="3">Всех</label>
+      </nz-radio-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired nzSpan="6">Выплаты</nz-form-label>
+    <nz-form-control>
+      <nz-radio-group formControlName="salary_type">
+        <label nz-radio-button nzValue="1">Ежедневно</label>
+        <label nz-radio-button nzValue="2">Раз в неделю</label>
+        <label nz-radio-button nzValue="3">Раз в месяц</label>
+      </nz-radio-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item style="align-items: center;">
+    <nz-form-label nzRequired nzSpan="6">Зарплата</nz-form-label>
+    <nz-form-control
+      nzSpan="8"
+      nzErrorTip="Пожалуйста, укажите зарплату"
+    >
+      <nz-input-group nzAddOnAfter="₩">
+        <input
+          type="text"
+          nz-input
+          placeholder="Зарплата"
+          formControlName="salary"
+        />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item style="margin-top: -12px;">
+    <nz-form-control nzOffset="6">
+      <nz-radio-group formControlName="salary_type">
+        <label nz-radio-button nzValue="1">За смену</label>
+        <label nz-radio-button nzValue="2">За неделю</label>
+        <label nz-radio-button nzValue="3">За месяц</label>
+      </nz-radio-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzSpan="6">Жильё</nz-form-label>
+    <nz-form-control>
+      <nz-radio-group formControlName="apt">
+        <label nz-radio-button nzValue="1">Да</label>
+        <label nz-radio-button nzValue="2">Нет</label>
+      </nz-radio-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzSpan="6">Описание</nz-form-label>
+    <nz-form-control
+      nzErrorTip="Пожалуйста, напишите подробнее о работе и укажите контакты для связи"
+    >
+      <textarea nz-input rows="4" formControlName="comment" nz-input></textarea>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control nzOffset="6">
+      <button nz-button nzType="primary" type="submit">
+        Добавить вакансию
+      </button>
+    </nz-form-control>
+  </nz-form-item>
+</form>

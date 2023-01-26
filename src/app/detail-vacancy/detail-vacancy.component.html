@@ -1,0 +1,12 @@
+<!-- <nz-card [nzTitle]="vacancy_title" [nzActions]="[actionEdit, actionDelete]"> -->
+<nz-card [nzTitle]="vacancy_title">
+  <p><b>Нужна виза?</b> {{ vacancy_need_visa_text }}</p>
+  <p><b>Вакансия для:</b> {{ vacancy_for_text }}</p>
+  <p><b>Зарплата:</b> {{ vacancy.salary }} {{ vacancy_salary_type_text }}</p>
+</nz-card>
+<!-- <ng-template #actionEdit>
+  <span nz-icon nzType="edit"></span>
+</ng-template>
+<ng-template #actionDelete>
+  <span nz-icon nzType="delete"></span>
+</ng-template> -->
